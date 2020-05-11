@@ -5,7 +5,7 @@ sc = SparkContext()
 df = sc.textFile("file:///home/caisi/PycharmProjects/sparkProject/countWord/英文文档.txt")  # loading file
 # print(df.count())
 split_list = df.flatMap(lambda x:x.split(' ')).collect()    # split text file
-# print(split_list)
+print(split_list)
 rdd1 = sc.parallelize(split_list)
 map_list = rdd1.map(lambda x:(x, 1)).collect()  # each word splice into tuples
 # print(map_list)
